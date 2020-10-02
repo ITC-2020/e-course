@@ -12,6 +12,19 @@
 <body>
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light">
+		
+		<div class="menu">
+			<a href="#overlay">
+				<img src="image/menu.png" alt="menu">
+			</a>
+		</div>
+
+		<div class="overlay" id="overlay">
+			<div class="close">
+				<a href="#">X</a>
+			</div>
+		</div>
+		
 		<a class="navbar-brand" href="">ITC</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
