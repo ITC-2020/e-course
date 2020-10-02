@@ -13,6 +13,7 @@
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light">
 		
+		<!-- Pop up samping -->
 		<div class="menu">
 			<a href="#overlay">
 				<img src="image/menu.png" alt="menu">
