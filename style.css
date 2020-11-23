@@ -220,3 +220,39 @@ a.socialIcon:hover,
   color: #fff;
   background-color: black;
 }
+
+/* untuk halaman login */
+/* Artikel */
+.artikel{
+    background-color: #ffc107;
+}
+
+.artikel .container{
+    background-color: white;
+    
+}
+
+.judul h2{
+    padding-top: 20px;
+}
+
+.judul hr{
+    width: 250px;
+    border-top: 3px solid #666;
+}
+
+.artikel .row{
+    margin-top: 20px;
+}
+
+.artikel .gambar{
+    width: 400px;
+}
+
+.artikel a h2{
+    text-decoration: none;
+    font-size: 40px;
+    color: black;
+    margin-bottom: 0;   
+}
+
