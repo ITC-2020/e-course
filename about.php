@@ -36,7 +36,7 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item">
-					<a class="nav-link" href="about.php">About</a>
+					<a class="nav-link" href="#">About</a>
 				</li>
 
 				<li class="nav-item dropdown">
@@ -156,88 +156,76 @@
 				<!-- End Pop up Login -->	
 			
 
-			
-	<div class="masthead2">
-		<div class="row" >
-        	<div class="col-md-6">
-        		<div class="row ml-5">
+			<div class="masthead3">
+				<div class="row">
+        		<div class="col-md-6">
         			
-        			<div class="col-md-4 text-center ">
-        				<img src="image/alumni1.jpg" width="130px" class="rounded mt-5">
-        				<h5 style="color: #cf9608;"><b>Kevin Hartono</b></h5>
-        				<p style="color: #cf9608;">consultant</p>
-        			</div>
-        			<div class="col-md-4 text-center">
-        				<br><br>
-        				<img src="image/alumni2.jpg" width="130px" class="rounded mt-5">
-        				<h5 style="color: #cf9608;"><b>Nadhira Afifa</b></h5>
-        				<p style="color: #cf9608;">General Doctor</p>
-        			</div>
-        			<div class="col-md-4 text-center">
-        				<img src="image/alumni3.jpg" width="130px" class="rounded mt-5">
-        				<h5 style="color: #cf9608;"><b>Leonardo Dcaprio</b></h5>
-        				<p style="color: #cf9608;">Internship Designer</p>
-        			</div>		
         		</div>
+        		<div class="col-md-6">
+        			<h1 class="text-center mt-5"><b>To spark the love of learning, <br> in everyone, everywhere,<br>to question everything</b></h1>
+       
+        		</div>
+      			</div>
         	</div>
-	        <div class="col-md-6">	
-	             <div class="mx-auto text-center">
-             		 <br><br><br>
-	                 <h2 style="color: #cf9608;" class="mt-5">ITC Alumni <br> with Successful Careers</h2>
-	                  <a class="btn btn-primary1">Almuni Testimoni</a>
-	             </div>
-	            		
-	        </div>
-      	</div>
-				
-    </div>
 
-	<div class="masthead">
-		<div class="row">
-			<div class="col-md-6">
-        	
-        	</div>
-        	<div class="col-md-6">
-        		<div class="text-center mt-5">
-        		<h1 class="text-white">Not afraid to miss class with interactive live bimble<br> first in indonesia!</h1>
-        		<h5 class="text-white">Taught by the best tutors!</h5>
+        	<div class="bg-white min-vh-100">
+        		<h1 class="text-center pt-4">Tentang ITC course</h1>
+        		<div class="ml-5 mr-5">
+	        		<p>PT ITC (ITC Course) adalah perseroan terbatas yang bergerak di bidang pendidikan nonformal yang didirikan menurut dan berdasarkan hukum yang berlaku di Indonesia serta telah memperoleh Izin Pendirian Satuan Pendidikan Nonformal dan Izin Operasional Lembaga Kursus Pelatihan dengan Nomor 3/A.5a/31.74.01/-1.851.332/2018.</p>
+
+	        		<p>ITC Course merupakan perusahaan teknologi terbesar di Indonesia yang berfokus pada layanan berbasis pendidikan. Kami telah memiliki lebih dari 15 juta pengguna serta mengelola 300.000 guru yang menawarkan jasa di lebih dari 100 bidang pelajaran.</p>
+
+	        		<p>ITC Course mengembangkan berbagai layanan belajar berbasis teknologi, termasuk layanan kelas virtual, platform ujian online, video belajar berlangganan, marketplace les privat, serta konten-konten pendidikan lainnya yang bisa diakses melalui web dan aplikasi Ruangguru.</p>
+
+	        		<p>Kami juga telah dipercaya untuk bermitra dengan 32 (dari 34) Pemerintah Provinsi dan 326 Pemerintah Kota dan Kabupaten di Indonesia.</p>
+
+	        		<p>ITC Course juga telah memenangkan sejumlah penghargaan di dalam dan luar negeri, termasuk Solver of MIT, Atlassian Prize,UNICEF Innovation to Watch,Google Launchpad Accelerator, dan ITU Global Industry Award.</p>
+        		</div>
+
         		<br>
+        		<div class="text-center">
+        			<img src="image/image-about2.jpg" width="400px">
+        		</div>
+        		<br><br><br>
         		
+        		<div class="ml-5 mr-5">
+	        		<h2>ITC Course untuk pendidikan Indonesia</h2>
+	        		<p>ITC Course memiliki misi untuk menyediakan dan memperluas akses terhadap pendidikan berkualitas melalui teknologi untuk semua siswa, kapan saja dan di mana saja.</p>
 
-        		<div class="row">
-        			<div class="col-md-6">
-        				<div class="card ml-5" style="width: 15rem; border-radius: 20px;">
-						  <ul class="list-group list-group-flush" style="border-radius: 20px;">
-						    <li class="list-group-item bg-warning">Optima</li>
-						    <li class="list-group-item cardhover">Bimbel Live</li>
-						  </ul>
-						</div>
-        			</div>
-        			<div class="col-md-6">
-        				<div class="card mr-5" style="width: 15rem; border-radius: 20px;">
-						  <ul class="list-group list-group-flush " style="border-radius: 20px;">
-						    <li class="list-group-item bg-warning">Ultima</li>
-						    <li class="list-group-item cardhover">UTBK & Bimbel Live</li>
-						  </ul>
-						</div>	
-        			</div>
+	        		<p>Kami percaya bahwa pendidikan adalah hak setiap manusia. Kami juga meyakini bahwa pendidikan adalah tiket untuk masa depan yang lebih baik. Maka dari itu, kami bertujuan untuk menyediakan layanan pendidikan dan materi pembelajaran dari guru-guru terbaik Indonesia, yang bisa diakses oleh seluruh siswa di mana saja mereka berada dengan biaya yang terjangkau.</p>
+
+	        		<p>Kami juga bertujuan untuk meningkatkan kualitas guru dengan menciptakan lapangan pekerjaan dan tambahan penghasilan bagi guru di Indonesia. Ruangguru percaya, dengan meningkatnya kualitas guru, maka mutu pendidikan di Indonesia juga akan menjadi lebih baik.</p>
+
+	        		<p>ITC Course juga percaya bahwa teknologi memudahkan siswa untuk mengakses materi pembelajaran yang berkualitas. Di mana pun mereka berada, ITC Course dapat membantu proses belajar siswa tanpa batasan ruang dan waktu. Kami juga meyakini bahwa teknologi dapat membantu siswa, guru, dan orang tua untuk menjalankan aktivitasnya menjadi lebih efektif dan efisien.</p>
+
+	        		<p>Kami bertekad untuk terus mengembangkan layanan kami serta berkolaborasi dengan berbagai pihak guna mencapai tujuan-tujuan kami.</p>
+
+	        		<br><br>
+	        		<h2>Startup Digital di bidang pendidikan terbaik di Indonesia</h2>
+	        		<p>Sebagai salah satu startup teknologi dan pendidikan terbesar di Indonesia, ITC Course telah dinobatkan menjadi penerima beragam penghargaan.</p>
+
         		</div>
 
-        		<br>
-        		<h6 class="text-white">Download ITC Course App Now!</h6>
-        		<div class="row">
-        			<div class="col-md-6 text-right"><img src="image/googleplay.png" width="150px"></div>
-        			<div class="col-md-6 text-left"><img src="image/appstore.png" width="150px"></div>
-        		</div>
+        		<div class="mr-3 ml-3">
+	        		<div class="row">
+		        		<div class="col-md-4 text-center">
+		        			<img src="image/award1.jpg" width="300px" class="">
+		        		</div>
+		        		<div class="col-md-4 text-center">
+		        			<img src="image/award2.jpg" width="300px;">
+		        		</div>
+		        		<div class="col-md-4 text-center">
+		        			<img src="image/award3.jpg" width="300px;">
+		        		</div>
+	      			</div>
+      			</div>
+      			<br><br>
+        		
         	</div>
-        	</div>
-      	</div>
-     </div>
+       
 
-
-
-
-
+ 
+        	
      <!-- Footer -->
 <footer class="page-footer font-small blue-grey lighten-5 bg-warning">
 
@@ -381,12 +369,7 @@
 
 </footer>
 <!-- Footer -->
-       
-
-        	
-
-        	
-				
+      
 
 </body>
 </html>
