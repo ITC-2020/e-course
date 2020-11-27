@@ -1,3 +1,55 @@
+<?php 
+  require 'functions.php';
+
+  // code signup
+  if (isset($_POST['submitsignup'])) {
+    if (isset($_POST['namasignup']) && !empty($_POST['namasignup']) && isset($_POST['emailsignup']) && !empty($_POST['emailsignup']) && isset($_POST['passwordsignup']) && !empty($_POST['passwordsignup'])) {
+      if (registrasi($_POST) > 0) {
+        header("Location: file.php");
+      } else {
+        echo mysqli_error($conn);
+      }
+    } else {
+      echo "<script>alert('Isi data dengan lengkap!')</script>";
+    }
+  }
+  // akhir code signup
+
+  // code login
+  if (isset($_POST['submitlogin'])) {
+    $e_login = $_POST['emaillogin'];
+    $p_login = $_POST['passwordlogin'];
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE email = '$e_login'");
+
+    // cek username
+    if (mysqli_num_rows($result) === 1) {
+      $row = mysqli_fetch_assoc($result);
+
+      // cek password admin
+      if ($row['email'] == 'admin') {
+        if ($p_login == 'admin') {
+          header("Location: file.php");
+          exit;
+        } else {
+          echo "<script>alert('Password admin salah')</script>";
+        }
+      } else {
+        // cek password user selain admin
+        if (password_verify($p_login, $row["password"])) {
+          header("Location: file.php");
+          exit;
+        } else {
+          echo "<script>alert('email: $e_login | Password anda salah')</script>";
+        }
+      }
+    } else {
+      echo "<script>alert('email: $e_login tidak ditemukan')</script>"; 
+    }
+  }
+  // akhir code login
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,69 +143,67 @@
 		</div>
 	</nav>
 
-				<!-- Pop up daftar -->
-				<div id="mydaftar" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
+  <!-- Pop up daftar -->
+  <div id="mydaftar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Sign Up</h4>
+          </div>
+  <form action="" method="post">
+    <div class="modal-body">
+    <div class="form-group">
+        <label for="fullnameSignup">Fullname</label>
+        <input type="text" name="namasignup" class="form-control" id="fullnameSignup" placeholder="Fullname" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="emailsignup" class="form-control" id="exampleInputEmail1" placeholder="Email" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="passwordsignup" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="submit" name="submitsignup" class="btn btn-success">Daftar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </form>
+    </div>
+    </div>
+  </div>
+  <!-- Pop up daftar -->
 
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h4 class="modal-title">Sign Up</h4>
-				      </div>
-				      <div class="modal-body">
-				        <form>
-				     <div class="form-group">
-				      <label for="exampleInputEmail1">Fullname</label>
-				      <input type="text" class="form-control" id="Fullname" placeholder="Fullname">
-				    </div>
-				    <div class="form-group">
-				      <label for="exampleInputEmail1">Email address</label>
-				      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-				    </div>
-				    <div class="form-group">
-				      <label for="exampleInputPassword1">Password</label>
-				      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				    </div>
-				  </form>
-				      </div>
-				      <div class="modal-footer">
-				       <button type="button" class="btn btn-success" data-dismiss="modal">Daftar</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-				<!-- Pop up daftar -->
-
-				<!-- Pop up login -->
-				<div id="mylogin" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
-
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h4 class="modal-title">Login</h4>
-				      </div>
-				      <div class="modal-body">
-				        <form>
-				    <div class="form-group">
-				      <label for="exampleInputEmail1">Username</label>
-				      <input type="text" class="form-control" id="username" placeholder="Username">
-				    </div>
-				    <div class="form-group">
-				      <label for="exampleInputPassword1">Password</label>
-				      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				    </div>
-				  </form>
-				      </div>
-				      <div class="modal-footer">
-				       <button type="button" class="btn btn-success" data-dismiss="modal">Login</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-				<!-- End Pop up Login -->	
+  <!-- Pop up login -->
+  <div id="mylogin" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Login</h4>
+        </div>
+  <form action="" method="post">      
+    <div class="modal-body">
+        <div class="form-group">
+          <label for="emailLogin">Email</label>
+          <input type="text" name="emaillogin" class="form-control" id="emailLogin" placeholder="Username" autocomplete="off" required="">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword2">Password</label>
+          <input type="password" name="passwordlogin" class="form-control" id="exampleInputPassword2" placeholder="Password" required="">
+        </div>
+      </div>
+        <div class="modal-footer">
+         <button type="submit" name="submitlogin" class="btn btn-success" >Login</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+  </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Pop up Login --> 
 			
 
 			
