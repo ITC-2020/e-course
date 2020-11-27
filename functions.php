@@ -1,7 +1,6 @@
 <?php 
 	// koneksi ke database
-	$conn = mysqli_connect("localhost", "root", "", "ecourse_itc");
-
+	include 'koneksi.php';
 
 	// fungsi registrasi
 	function registrasi($data) {
