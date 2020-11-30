@@ -1,11 +1,13 @@
 <?php
-    include "../koneksi.php";
+   include "../koneksi.php";
     $id = $_POST['id'];
-    $nama = $_POST['nama'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $nama = htmlspecialchars($_POST['nama']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $pass = password_hash($password, PASSWORD_DEFAULT);
     
-    $query = "UPDATE user SET nama='".$nama."', email='".$email."', password='".$password."' WHERE id='".$id."'";
+
+    $query = "UPDATE user SET nama='".$nama."', email='".$email."', password='".$pass."' WHERE id='".$id."'";
     $cek = mysqli_query($conn,$query);
 
     if($cek != false){

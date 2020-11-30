@@ -53,8 +53,8 @@
                         <td>
 
 
-                            <button data-toggle="modal" data-target="#updatePopUp" class="btn btn-warning">Update</button>
-                            <div id="updatePopUp" class="modal fade" role="dialog">
+                            <button data-toggle="modal" data-target="#updatePopUp<?= $row['id']; ?>" class="btn btn-warning">Update</button>
+                            <div id="updatePopUp<?= $row['id']; ?>" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <div class="modal-content text-dark">
                                         <div class="modal-header">
@@ -70,15 +70,15 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="namaForm">Nama</label>
-                                                    <input type="text" value="<?= $row['nama'] ?>" class="form-control" id="namaForm" name="nama">
+                                                    <input type="text" value="<?= $row['nama'] ?>" class="form-control" id="namaForm" name="nama" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="emailForm">Email</label>
-                                                    <input type="email" value="<?= $row['email'] ?>"class="form-control" id="emailForm" name="email">
+                                                    <input type="email" value="<?= $row['email'] ?>"class="form-control" id="emailForm" name="email" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="passwordForm">Password</label>
-                                                    <input type="password" id="passwordForm" class="form-control" name="password">
+                                                    <input type="password" id="passwordForm" class="form-control" name="password" required>
                                                 </div>
                                             </div>
 
@@ -92,8 +92,8 @@
                                 </div>
                             </div>
 
-                            <button data-toggle="modal" data-target="#deletePopUp" class="btn btn-danger">Delete</button>
-                            <div id="deletePopUp" class="modal fade" role="dialog">
+                            <button data-toggle="modal" data-target="#deletePopUp<?= $row['id']; ?>" class="btn btn-danger">Delete</button>
+                            <div id="deletePopUp<?= $row['id']; ?>" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <div class="modal-content text-dark">
                                         <div class="modal-header">
