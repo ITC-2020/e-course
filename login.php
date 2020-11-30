@@ -1,3 +1,23 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
+  
+  require 'functions.php';
+
+  // code untuk menampilkan akun di kanan navbar
+  if (isset($_SESSION["user"])) {
+    
+    $e_logout = $_SESSION["user"];
+    
+    $user = query("SELECT * FROM user WHERE email = '$e_logout'")[0];
+  }
+  // akhir code untuk menampilkan akun
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,149 +34,52 @@
 </head>
 <body>
 	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light">
-		
-		<!-- Pop up samping -->
-		<div class="menu">
-			<a href="#overlay">
-				<img src="image/menu.png" alt="menu">
-			</a>
-		</div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    
+    <a class="navbar-brand" href="index.php"  style="font-size: 30px; margin-left: 50px; font-weight: bold;">ITC</a>
 
-		<div class="overlay" id="overlay">
-			<div class="close">
-				<a href="#">X</a>
-			</div>
-		</div>
-		
-		<a class="navbar-brand" href="index.php"  style="font-size: 30px; margin-left: 10px; font-weight: bold;">ITC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="about.php" style="margin-left: 30px; margin-right: 15px;">About</a>
+        </li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About</a>
-				</li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="margin-right: 15px;">Testimonial</a>
+        </li>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="ourProduct" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Our Product
-					</a>
-					<div class="dropdown-menu" aria-labelledby="ourProduct">
-						<a class="dropdown-item" href="">Platinum</a>
-						<a class="dropdown-item" href="">Gold</a>
-						<a class="dropdown-item" href="">Reguler</a>
-					</div>
-				</li>
-				
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="Material" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Our Product
-					</a>
-					<div class="dropdown-menu" aria-labelledby="Material">
-						<a class="dropdown-item" href="">SD</a>
-						<a class="dropdown-item" href="">SMP</a>
-						<a class="dropdown-item" href="">SMA</a>
-					</div>
-				</li>
+        <?php if (isset($_SESSION["login"])) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="login.php">Article</a>
+        </li>
+        <?php endif; ?>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="Exam" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Exam
-					</a>
-					<div class="dropdown-menu" aria-labelledby="Exam">
-						<a class="dropdown-item" href="">UTBK</a>
-						<a class="dropdown-item" href="">UN</a>
-					</div>
-				</li>
+        <?php if (isset($_SESSION["admin"])) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="admin/index.php">Admin Page</a>
+        </li>
+        <?php endif; ?>
 
-				<li class="nav-item">
-					<a class="nav-link" href="#">Live</a>
-				</li>
+      </ul>
 
-			</ul>
-
-		<div class="inline">
-
-			<div class="">
-				<li data-toggle="modal" data-target="#mylogin"><a href="#"><span class="border-right p-2">Login</a>
-				<li data-toggle="modal" data-target="#mydaftar"><a href="#"><span class="p-2">Sign Up</a>
-				
-			</div>
-
-		</div>
+    <?php if (isset($_SESSION["login"])) : ?>
+    <div class="inline">
+      <?= $user["nama"];  ?> | <?= $user["email"];  ?> 
+      <br>
+      <a href="logout.php" style="margin-left: 125px;">Logout</a>
+    </div>
+    <?php endif; ?>
+    
+    </div>
+  </nav>
+  <!-- End Navbar -->
 
 		
-		</div>
-	</nav>
-
-				<!-- Pop up daftar -->
-				<div id="mydaftar" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
-
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h4 class="modal-title">Sign Up</h4>
-				      </div>
-				      <div class="modal-body">
-				        <form>
-				     <div class="form-group">
-				      <label for="exampleInputEmail1">Fullname</label>
-				      <input type="text" class="form-control" id="Fullname" placeholder="Fullname">
-				    </div>
-				    <div class="form-group">
-				      <label for="exampleInputEmail1">Email address</label>
-				      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-				    </div>
-				    <div class="form-group">
-				      <label for="exampleInputPassword1">Password</label>
-				      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				    </div>
-				  </form>
-				      </div>
-				      <div class="modal-footer">
-				       <button type="button" class="btn btn-success" data-dismiss="modal">Daftar</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-				<!-- Pop up daftar -->
-
-				<!-- Pop up login -->
-				<div id="mylogin" class="modal fade" role="dialog">
-				  <div class="modal-dialog">
-
-				    <!-- Modal content-->
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h4 class="modal-title">Login</h4>
-				      </div>
-				      <div class="modal-body">
-				        <form>
-				    <div class="form-group">
-				      <label for="exampleInputEmail1">Username</label>
-				      <input type="text" class="form-control" id="username" placeholder="Username">
-				    </div>
-				    <div class="form-group">
-				      <label for="exampleInputPassword1">Password</label>
-				      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				    </div>
-				  </form>
-				      </div>
-				      <div class="modal-footer">
-				       <button type="button" class="btn btn-success" data-dismiss="modal">Login</button>
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-				<!-- End Pop up Login -->	
 			
     <!-- Artikel -->
     <section class="artikel" id="artikel">
@@ -169,7 +92,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
-                    <a href="#">
+                    <a href="https://www.w3schools.com/html/default.asp">
                         <img src="image/html.jpg" class="gambar" alt="html">
                         <h2>Belajar HTML</h2>
                     </a>
@@ -177,9 +100,9 @@
                     <hr>
                 </div>
                 <div class="col-sm-5">
-                    <a href="#">
+                    <a href="https://www.w3schools.com/css/default.asp">
                         <img src="image/css.png" class="gambar" alt="css">
-                        <h2>Belajar HTML</h2>
+                        <h2>Belajar CSS</h2>
                     </a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
                     <hr>
@@ -187,7 +110,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
-                    <a href="#">
+                    <a href="https://www.w3schools.com/js/default.asp">
                         <img src="image/js.jpg" class="gambar" alt="js">
                         <h2>Belajar Javasript</h2>
                     </a>
@@ -195,7 +118,7 @@
                     <hr>
                 </div>
                 <div class="col-sm-5">
-                    <a href="#">
+                    <a href="https://www.w3schools.com/php/default.asp">
                         <img src="image/php.png" class="gambar" alt="php">
                         <h2>Belajar PHP</h2>
                     </a>
@@ -205,7 +128,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
-                    <a href="#">
+                    <a href="https://www.w3schools.com/sql/default.asp">
                         <img src="image/mysql.png" class="gambar" alt="mysql">
                         <h2>Belajar Mysql</h2>
                     </a>
@@ -213,7 +136,7 @@
                     <hr>
                 </div>
                 <div class="col-sm-5">
-                    <a href="#">
+                    <a href="https://www.w3schools.com/css/css3_user_interface.asp">
                         <img src="image/uiux.jpeg" class="gambar" alt="ui/ux">
                         <h2>Belajar UI/UX</h2>
                     </a>
@@ -293,48 +216,34 @@
         <!-- Grid column -->
   
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-  
-          <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Products</h6>
-          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>
-            <a class="dark-grey-text" href="#!">MDBootstrap</a>
-          </p>
-          <p>
-            <a class="dark-grey-text" href="#!">MDWordPress</a>
-          </p>
-          <p>
-            <a class="dark-grey-text" href="#!">BrandFlow</a>
-          </p>
-          <p>
-            <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
-          </p>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-  
-          <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>
-            <a class="dark-grey-text" href="#!">Your Account</a>
-          </p>
-          <p>
-            <a class="dark-grey-text" href="#!">Become an Affiliate</a>
-          </p>
-          <p>
-            <a class="dark-grey-text" href="#!">Shipping Rates</a>
-          </p>
-          <p>
-            <a class="dark-grey-text" href="#!">Help</a>
-          </p>
-  
-        </div>
-        <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Browser Side</h6>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+        <p class="dark-grey-text">Learn HTML</p>
+        
+        <p class="dark-grey-text">Learn CSS</p>
+        
+        <p class="dark-grey-text">Learn Javascript</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Server Side</h6>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+        <p class="dark-grey-text">Learn PHP</p>
+        
+        <p class="dark-grey-text">Learn SQL</p>
+
+      </div>
+      <!-- Grid column -->
   
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
