@@ -21,9 +21,11 @@ if (!isset($_SESSION["login"])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>E-course ITC</title>
+  <link rel="icon" href="image/logo-itc.jpg">
+	<title>Content</title>
+
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap4/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style2.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/bootstrap4/js/bootstrap.min.js"></script>
@@ -35,8 +37,9 @@ if (!isset($_SESSION["login"])) {
 <body>
 	<!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    
-    <a class="navbar-brand" href="index.php"  style="font-size: 30px; margin-left: 50px; font-weight: bold;">ITC</a>
+
+    <a href="index.php"><img src="image/logo-itc.jpg" height="45" style="margin-left: 50px; margin-right: 10px;"></a>
+    <a class="navbar-brand" href="index.php"  style="font-size: 30px; font-weight: bold;">ITC</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,22 +49,32 @@ if (!isset($_SESSION["login"])) {
       <ul class="navbar-nav mr-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="about.php" style="margin-left: 30px; margin-right: 15px;">About</a>
+          <a class="nav-link" href="about.php" style="margin-left: 30px; margin-right: 15px;">About Us</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" style="margin-right: 15px;">Testimonial</a>
+          <a class="nav-link" href="testimoni.php" style="margin-right: 15px;">Testimonial</a>
         </li>
 
         <?php if (isset($_SESSION["login"])) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Article</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-konten" href="login.php" style="margin-right: 15px;">
+            <div class="nav-konten-text">Content</div>
+            <div class="nav-konten-logo"></div>
+          </a>
+          <div class="dropdown-content">
+            <a href="login.php#content-1">Learn HTML</a>
+            <a href="login.php#content-1">Learn CSS</a>
+            <a href="login.php#content-2">Learn Javascript</a>
+            <a href="login.php#content-2">Learn PHP</a>
+            <a href="login.php#content-3">Learn SQL</a>
+          </div>
         </li>
         <?php endif; ?>
 
         <?php if (isset($_SESSION["admin"])) : ?>
         <li class="nav-item">
-          <a class="nav-link" href="admin/index.php">Admin Page</a>
+          <a class="nav-link" href="admin">Admin Page</a>
         </li>
         <?php endif; ?>
 
@@ -69,9 +82,9 @@ if (!isset($_SESSION["login"])) {
 
     <?php if (isset($_SESSION["login"])) : ?>
     <div class="inline">
-      <?= $user["nama"];  ?> | <?= $user["email"];  ?> 
-      <br>
-      <a href="logout.php" style="margin-left: 125px;">Logout</a>
+      <p>Login as: <?= $user["nama"];?> / <?= $user["email"];?> 
+      <b style="color: white; font-size: 25px;">|</b>
+      <a href="logout.php">Logout</a> </p>
     </div>
     <?php endif; ?>
     
@@ -79,71 +92,73 @@ if (!isset($_SESSION["login"])) {
   </nav>
   <!-- End Navbar -->
 
-		
 			
     <!-- Artikel -->
     <section class="artikel" id="artikel">
         <div class="container">
-            <div class="judul">
-                <div class="col-sm-12">
-                    <h2 class="text-center">Artikel</h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5 offset-sm-1">
-                    <a href="https://www.w3schools.com/html/default.asp">
-                        <img src="image/html.jpg" class="gambar" alt="html">
-                        <h2>Belajar HTML</h2>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eos dolore omnis at. Impedit facilis, ullam natus accusantium velit voluptatum assumenda ad architecto sed eveniet.</p>
-                    <hr>
-                </div>
-                <div class="col-sm-5">
-                    <a href="https://www.w3schools.com/css/default.asp">
-                        <img src="image/css.png" class="gambar" alt="css">
-                        <h2>Belajar CSS</h2>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5 offset-sm-1">
-                    <a href="https://www.w3schools.com/js/default.asp">
-                        <img src="image/js.jpg" class="gambar" alt="js">
-                        <h2>Belajar Javasript</h2>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eos dolore omnis at. Impedit facilis, ullam natus accusantium velit voluptatum assumenda ad architecto sed eveniet.</p>
-                    <hr>
-                </div>
-                <div class="col-sm-5">
-                    <a href="https://www.w3schools.com/php/default.asp">
-                        <img src="image/php.png" class="gambar" alt="php">
-                        <h2>Belajar PHP</h2>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5 offset-sm-1">
-                    <a href="https://www.w3schools.com/sql/default.asp">
-                        <img src="image/mysql.png" class="gambar" alt="mysql">
-                        <h2>Belajar Mysql</h2>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eos dolore omnis at. Impedit facilis, ullam natus accusantium velit voluptatum assumenda ad architecto sed eveniet.</p>
-                    <hr>
-                </div>
-                <div class="col-sm-5">
-                    <a href="https://www.w3schools.com/css/css3_user_interface.asp">
-                        <img src="image/uiux.jpeg" class="gambar" alt="ui/ux">
-                        <h2>Belajar UI/UX</h2>
-                    </a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
-                    <hr>
-                </div>
-            </div>
+          <br><br>
+          <div class="judul">
+              <div class="col-sm-12">
+                  <h2 class="text-center">Artikel</h2>
+                  <hr>
+              </div>
+          </div>
+          <br>
+          <div class="row" id="content-1">
+              <div class="col-sm-5 offset-sm-1">
+                  <a href="https://www.w3schools.com/html/default.asp">
+                      <img src="image/html.jpg" class="gambar" alt="html">
+                      <h2>Belajar HTML</h2>
+                  </a>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eos dolore omnis at. Impedit facilis, ullam natus accusantium velit voluptatum assumenda ad architecto sed eveniet.</p>
+                  <hr>
+              </div>
+              <div class="col-sm-5">
+                  <a href="https://www.w3schools.com/css/default.asp">
+                      <img src="image/css.png" class="gambar" alt="css">
+                      <h2>Belajar CSS</h2>
+                  </a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
+                  <hr>
+              </div>
+          </div>
+          <div class="row" id="content-2">
+              <div class="col-sm-5 offset-sm-1">
+                  <a href="https://www.w3schools.com/js/default.asp">
+                      <img src="image/js.jpg" class="gambar" alt="js">
+                      <h2>Belajar Javasript</h2>
+                  </a>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eos dolore omnis at. Impedit facilis, ullam natus accusantium velit voluptatum assumenda ad architecto sed eveniet.</p>
+                  <hr>
+              </div>
+              <div class="col-sm-5">
+                  <a href="https://www.w3schools.com/php/default.asp">
+                      <img src="image/php.png" class="gambar" alt="php">
+                      <h2>Belajar PHP</h2>
+                  </a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
+                  <hr>
+              </div>
+          </div>
+          <div class="row" id="content-3">
+              <div class="col-sm-5 offset-sm-1">
+                  <a href="https://www.w3schools.com/sql/default.asp">
+                      <img src="image/mysql.png" class="gambar" alt="mysql">
+                      <h2>Belajar SQL</h2>
+                  </a>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eos dolore omnis at. Impedit facilis, ullam natus accusantium velit voluptatum assumenda ad architecto sed eveniet.</p>
+                  <hr>
+              </div>
+              <div class="col-sm-5">
+                  <a href="https://www.w3schools.com/css/css3_user_interface.asp">
+                      <img src="image/uiux.jpeg" class="gambar" alt="ui/ux">
+                      <h2>Belajar Desain UI/UX</h2>
+                  </a>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis ratione cum minus architecto, rerum id error placeat officiis porro, iusto dolore. Distinctio odit tempora aliquam, quidem facere ex maiores.</p>
+                  <hr>
+              </div>
+          </div>
+          <br>
         </div>
     </section>
     <!-- end of Artikel -->
@@ -197,29 +212,51 @@ if (!isset($_SESSION["login"])) {
     </div>
   
     <!-- Footer Links -->
-    <div class="container text-center text-md-left mt-5">
-  
-      <!-- Grid row -->
-      <div class="row mt-3 dark-grey-text">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-  
-          <!-- Content -->
-          <h6 class="text-uppercase font-weight-bold">Company name</h6>
-          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-            consectetur
-            adipisicing elit.</p>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <!-- Grid column -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3 dark-grey-text">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">ITC COURSE</h6>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>ITC Course is the bigest tech company in Indonesia whose focus on education. </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Browser Side</h6>
+        <h6 class="text-uppercase font-weight-bold">Menu</h6>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a class="dark-grey-text" href="index.php">Home</a>
+        </p>
+        <p>
+          <a class="dark-grey-text" href="about.php">About Us</a>
+        </p>
+        <p>
+          <a class="dark-grey-text" href="testimoni.php">Testimonial</a>
+        </p>
+      <?php if (isset($_SESSION["admin"])) : ?>
+        <p>
+          <a class="dark-grey-text" href="admin">Admin Page</a>
+        </p>
+      <?php endif; ?>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Content</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
         <p class="dark-grey-text">Learn HTML</p>
@@ -228,46 +265,34 @@ if (!isset($_SESSION["login"])) {
         
         <p class="dark-grey-text">Learn Javascript</p>
 
+        <p class="dark-grey-text">Learn PHP and SQL</p>
+
       </div>
       <!-- Grid column -->
 
       <!-- Grid column -->
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Server Side</h6>
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-        <p class="dark-grey-text">Learn PHP</p>
-        
-        <p class="dark-grey-text">Learn SQL</p>
+        <p>
+          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p>
+          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
 
       </div>
       <!-- Grid column -->
-  
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-  
-          <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Contact</h6>
-          <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>
-            <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-          <p>
-            <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-          <p>
-            <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-          <p>
-            <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-  
-        </div>
-        <!-- Grid column -->
-  
-      </div>
-      <!-- Grid row -->
-  
+
     </div>
-    <!-- Footer Links -->
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
   
     <!-- Copyright -->
     <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
