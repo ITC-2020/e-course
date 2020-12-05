@@ -75,9 +75,11 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>E-course ITC</title>
+  <link rel="icon" href="image/logo-itc.jpg">
+	<title>About Us</title>
+
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap4/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style2.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="assets/bootstrap4/js/bootstrap.min.js"></script>
@@ -86,8 +88,9 @@ session_start();
 <body>
 	<!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    
-    <a class="navbar-brand" href="index.php"  style="font-size: 30px; margin-left: 50px; font-weight: bold;">ITC</a>
+
+    <a href="index.php"><img src="image/logo-itc.jpg" height="45" style="margin-left: 50px; margin-right: 10px;"></a>
+    <a class="navbar-brand" href="index.php"  style="font-size: 30px; font-weight: bold;">ITC</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -97,22 +100,32 @@ session_start();
       <ul class="navbar-nav mr-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="about.php" style="margin-left: 30px; margin-right: 15px;">About</a>
+          <a class="nav-link" href="about.php" style="margin-left: 30px; margin-right: 15px;">About Us</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#" style="margin-right: 15px;">Testimonial</a>
+          <a class="nav-link" href="testimoni.php" style="margin-right: 15px;">Testimonial</a>
         </li>
 
         <?php if (isset($_SESSION["login"])) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Article</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-konten" href="login.php" style="margin-right: 15px;">
+            <div class="nav-konten-text">Content</div>
+            <div class="nav-konten-logo"></div>
+          </a>
+          <div class="dropdown-content">
+            <a href="login.php#content-1">Learn HTML</a>
+            <a href="login.php#content-1">Learn CSS</a>
+            <a href="login.php#content-2">Learn Javascript</a>
+            <a href="login.php#content-2">Learn PHP</a>
+            <a href="login.php#content-3">Learn SQL</a>
+          </div>
         </li>
         <?php endif; ?>
 
         <?php if (isset($_SESSION["admin"])) : ?>
         <li class="nav-item">
-          <a class="nav-link" href="admin/index.php">Admin Page</a>
+          <a class="nav-link" href="admin">Admin Page</a>
         </li>
         <?php endif; ?>
 
@@ -127,9 +140,9 @@ session_start();
 
     <?php if (isset($_SESSION["login"])) : ?>
     <div class="inline">
-      <?= $user["nama"];  ?> | <?= $user["email"];  ?> 
-      <br>
-      <a href="logout.php" style="margin-left: 125px;">Logout</a>
+      <p>Login as: <?= $user["nama"];?> / <?= $user["email"];?> 
+      <b style="color: white; font-size: 25px;">|</b>
+      <a href="logout.php">Logout</a> </p>
     </div>
     <?php endif; ?>
     
@@ -328,11 +341,9 @@ session_start();
       <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
 
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Company name</h6>
+        <h6 class="text-uppercase font-weight-bold">ITC COURSE</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>ITC Course is the bigest tech company in Indonesia whose focus on education. </p>
 
       </div>
       <!-- Grid column -->
@@ -341,7 +352,33 @@ session_start();
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Browser Side</h6>
+        <h6 class="text-uppercase font-weight-bold">Menu</h6>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a class="dark-grey-text" href="index.php">Home</a>
+        </p>
+        <p>
+          <a class="dark-grey-text" href="testimoni.php">Testimonial</a>
+        </p>
+      <?php if (isset($_SESSION["login"])) : ?>
+        <p>
+          <a class="dark-grey-text" href="login.php">Content</a>
+        </p>
+      <?php endif; ?>
+      <?php if (isset($_SESSION["admin"])) : ?>
+        <p>
+          <a class="dark-grey-text" href="admin">Admin Page</a>
+        </p>
+      <?php endif; ?>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Content</h6>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
         <p class="dark-grey-text">Learn HTML</p>
@@ -350,19 +387,7 @@ session_start();
         
         <p class="dark-grey-text">Learn Javascript</p>
 
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Server Side</h6>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-        <p class="dark-grey-text">Learn PHP</p>
-        
-        <p class="dark-grey-text">Learn SQL</p>
+        <p class="dark-grey-text">Learn PHP and SQL</p>
 
       </div>
       <!-- Grid column -->
